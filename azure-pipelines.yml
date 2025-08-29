@@ -92,7 +92,7 @@ jobs:
           npm install netlify-cli
           du -sh $BUILD_BINARIESDIRECTORY
           find $BUILD_BINARIESDIRECTORY | wc -l
-          $(npm bin)/netlify deploy -d $BUILD_BINARIESDIRECTORY --json | tee netlify.json
+          npx netlify deploy -d $BUILD_BINARIESDIRECTORY --json | tee netlify.json
 
           NETLIFY_URL=$(jq -r '.deploy_url' netlify.json)
           if [ -n "$NETLIFY_URL" ] ; then
